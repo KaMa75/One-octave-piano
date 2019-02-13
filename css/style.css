@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 960px;
+    position: relative;
+}
+
+header {
+    width: 100%;
+    height: 160px;
+    background-image: url("../img/piano_body.jpg");
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header h1 {
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 0 0 5px #333;
+    opacity: 0.65;
+    font-family: 'Righteous', cursive;
+    letter-spacing: 3px;
+}
+
+.piano {
+    width: 100%;
+    overflow: hidden;
+}
+
+.fulltone_box {
+    width: 100%;
+    background-color: #000;
+    display: flex;
+    align-items: flex-start;
+}
+
+.fulltone_key {
+    position: relative;
+    overflow: hidden;
+}
+
+.fulltone_key img {
+    margin-top: -10px;
+    width: 100%;
+    position: relative;
+}
+
+.halftone_box {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: absolute;
+    top: 160px;
+}
+
+.halftone_key {
+    background-color: #000;
+    position: relative;
+    overflow: hidden;
+    margin-left: 2.2%;
+    margin-right: 2.2%;
+    padding: 0 2px 0 2px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.halftone_key:first-child {
+    margin-left: 0;
+}
+
+.halftone_key:last-child {
+    margin-right: 0;
+}
+
+.halftone_key img {
+    margin-top: -12px;
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: block;
+}
+

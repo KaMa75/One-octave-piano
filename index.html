@@ -5,10 +5,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Fantastic piano</title>
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet"> 
     <link rel="stylesheet" href="css/style.css">
     <script src="js/app.js"></script>
 </head>
 <body>
-    
+    <div class="wrapper">
+        <header>
+            <h1>
+                My fantastic piano
+            </h1>
+        </header>
+        <div class="piano">
+            <section class="fulltone_box">
+                <div data-key="65" class="fulltone_key">
+                    <img src="img/piano_key.png" alt="">
+                    <!-- <p>a</p> -->
+                </div>
+                <div data-key="83" class="fulltone_key">
+                    <img src="img/piano_key.png" alt="">
+                    <!-- <p>s</p> -->
+                </div>
+                <div data-key="68" class="fulltone_key">
+                    <img src="img/piano_key.png" alt="">
+                    <!-- <p>d</p> -->
+                </div>
+                <div data-key="70" class="fulltone_key">
+                    <img src="img/piano_key.png" alt="">
+                    <!-- <p>f</p> -->
+                </div>
+                <div data-key="71" class="fulltone_key">
+                    <img src="img/piano_key.png" alt="">
+                    <!-- <p>g</p> -->
+                </div>
+                <div data-key="72" class="fulltone_key">
+                    <img src="img/piano_key.png" alt="">
+                    <!-- <p>h</p> -->
+                </div>
+                <div data-key="74" class="fulltone_key">
+                    <img src="img/piano_key.png" alt="">
+                    <!-- <p>j</p> -->
+                </div>
+                <div data-key="75" class="fulltone_key">
+                    <img src="img/piano_key.png" alt="">
+                    <!-- <p>k</p> -->
+                </div>
+            </section>
+            <section class="halftone_box">
+                <div class="halftone_key hidden">
+                    <img src="img/piano_halftone_key_left.png" alt="">
+                </div>
+                <div data-key="87" class="halftone_key">
+                    <img src="img/piano_halftone_key.png" alt="">
+                    <!-- <p>w</p> -->
+                </div>
+                <div data-key="69" class="halftone_key">
+                    <img src="img/piano_halftone_key.png" alt="">
+                    <!-- <p>e</p> -->
+                </div>
+                <div class="halftone_key hidden">
+                    <img src="img/piano_halftone_key.png" alt="">
+                </div>
+                <div data-key="84" class="halftone_key">
+                    <img src="img/piano_halftone_key.png" alt="">
+                    <!-- <p>t</p> -->
+                </div>
+                <div data-key="89" class="halftone_key">
+                    <img src="img/piano_halftone_key.png" alt="">
+                    <!-- <p>y</p> -->
+                </div>
+                <div data-key="85" class="halftone_key">
+                    <img src="img/piano_halftone_key.png" alt="">
+                    <!-- <p>u</p> -->
+                </div>
+                <div class="halftone_key hidden">
+                    <img src="img/piano_halftone_key.png" alt="">
+                </div>
+                <div class="halftone_key">
+                    <img src="img/piano_halftone_key_right.png" alt="">
+                </div>
+            </section>
+        </div>
+    </div>
+    <audio data-key="65" src="sounds/01-middle-c.mp3"></audio>
+    <audio data-key="87" src="sounds/02-middle-cis.mp3"></audio>
+    <audio data-key="83" src="sounds/03-middle-d.mp3"></audio>
+    <audio data-key="69" src="sounds/04-middle-dis.mp3"></audio>
+    <audio data-key="68" src="sounds/05-middle-e.mp3"></audio>
+    <audio data-key="70" src="sounds/06-middle-f.mp3"></audio>
+    <audio data-key="84" src="sounds/07-middle-fis.mp3"></audio>
+    <audio data-key="71" src="sounds/08-middle-g.mp3"></audio>
+    <audio data-key="89" src="sounds/09-middle-gis.mp3"></audio>
+    <audio data-key="72" src="sounds/10-middle-a.mp3"></audio>
+    <audio data-key="85" src="sounds/11-middle-ais.mp3"></audio>
+    <audio data-key="74" src="sounds/12-middle-h.mp3"></audio>
+    <audio data-key="75" src="sounds/13-treble-c.mp3"></audio>
 </body>
 </html>

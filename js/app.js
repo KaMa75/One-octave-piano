@@ -21,16 +21,16 @@ class Piano {
             }
         });
 
-        // window.addEventListener('keyup', event => {
-        //     const audioEl = document.querySelector(`audio[data-key="${event.keyCode}"]`);
-        //     const keyEl = document.querySelector(`div[data-key="${event.keyCode}"]`);
-        //     if(audioEl) {
-        //         // this.stopAudio(audioEl);
-        //         this.setKeyOff(keyEl);
-        //     } else {
-        //         return;
-        //     }
-        // });
+        window.addEventListener('keyup', event => {
+            const audioEl = document.querySelector(`audio[data-key="${event.keyCode}"]`);
+            const keyEl = document.querySelector(`div[data-key="${event.keyCode}"]`);
+            if(audioEl) {
+                this.stopAudio(audioEl);
+                this.setKeyOff(keyEl);
+            } else {
+                return;
+            }
+        });
     }
 
     playAudio(audio) {
@@ -39,8 +39,8 @@ class Piano {
     }
     
     stopAudio(audio) {
-        // audio.currentTime = 0;
-        // audio.pause();
+        audio.currentTime = 0;
+        audio.pause();
     }
 
     setKeyOn(key) {

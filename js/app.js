@@ -11,30 +11,33 @@ class Piano {
 
     initEvents() {
         window.addEventListener('keydown', event => {
-            const audioEl = document.querySelector(`audio[data-key="${event.keyCode}"]`);
-            const keyEl = document.querySelector(`div[data-key="${event.keyCode}"]`);
-            if(audioEl) {
-                this.playAudio(audioEl);
-                this.setKeyOn(keyEl);
+            const elements = this.findElements(event);
+            if(elements.audioEl) {
+                this.playAudio(elements.audioEl);
+                this.setKey(elements.keyEl, this.fullToneKeyOn, this.halfToneKeyOn);
             } else {
                 return;
             }
         });
 
         window.addEventListener('keyup', event => {
-            const audioEl = document.querySelector(`audio[data-key="${event.keyCode}"]`);
-            const keyEl = document.querySelector(`div[data-key="${event.keyCode}"]`);
-            if(audioEl) {
-                this.stopAudio(audioEl);
-                this.setKeyOff(keyEl);
+            const elements = this.findElements(event);
+            if(elements.audioEl) {
+                this.stopAudio(elements.audioEl);
+                this.setKey(elements.keyEl, this.fullToneKey, this.halfToneKey);
             } else {
                 return;
             }
         });
     }
 
+    findElements(event) {
+        const audioEl = document.querySelector(`audio[data-key="${event.keyCode}"]`);
+        const keyEl = document.querySelector(`div[data-key="${event.keyCode}"]`);
+        return { audioEl, keyEl };
+    }
+
     playAudio(audio) {
-        // audio.currentTime = 0;
         audio.play();
     }
     
@@ -43,25 +46,35 @@ class Piano {
         audio.pause();
     }
 
-    setKeyOn(key) {
+    setKey(key, fullToneImg, halfToneImg) {
         const keyParent = key.parentElement;
         const keyImg = key.firstElementChild;        
         if(keyParent.classList.contains(this.fullToneBoxClass)) {
-            keyImg.setAttribute('src', this.fullToneKeyOn);
+            keyImg.setAttribute('src', fullToneImg);
         } else if (keyParent.classList.contains(this.halfToneBoxClass)) {
-            keyImg.setAttribute('src', this.halfToneKeyOn);
+            keyImg.setAttribute('src', halfToneImg);
         }
     }
 
-    setKeyOff(key) {
-        const keyParent = key.parentElement;
-        const keyImg = key.firstElementChild;        
-        if(keyParent.classList.contains(this.fullToneBoxClass)) {
-            keyImg.setAttribute('src', this.fullToneKey);
-        } else if (keyParent.classList.contains(this.halfToneBoxClass)) {
-            keyImg.setAttribute('src', this.halfToneKey);
-        }
-    }
+    // setKeyOn(key) {
+    //     const keyParent = key.parentElement;
+    //     const keyImg = key.firstElementChild;        
+    //     if(keyParent.classList.contains(this.fullToneBoxClass)) {
+    //         keyImg.setAttribute('src', this.fullToneKeyOn);
+    //     } else if (keyParent.classList.contains(this.halfToneBoxClass)) {
+    //         keyImg.setAttribute('src', this.halfToneKeyOn);
+    //     }
+    // }
+
+    // setKeyOff(key) {
+    //     const keyParent = key.parentElement;
+    //     const keyImg = key.firstElementChild;        
+    //     if(keyParent.classList.contains(this.fullToneBoxClass)) {
+    //         keyImg.setAttribute('src', this.fullToneKey);
+    //     } else if (keyParent.classList.contains(this.halfToneBoxClass)) {
+    //         keyImg.setAttribute('src', this.halfToneKey);
+    //     }
+    // }
 
     
 }

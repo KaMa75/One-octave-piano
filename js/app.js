@@ -54,29 +54,7 @@ class Piano {
         } else if (keyParent.classList.contains(this.halfToneBoxClass)) {
             keyImg.setAttribute('src', halfToneImg);
         }
-    }
-
-    // setKeyOn(key) {
-    //     const keyParent = key.parentElement;
-    //     const keyImg = key.firstElementChild;        
-    //     if(keyParent.classList.contains(this.fullToneBoxClass)) {
-    //         keyImg.setAttribute('src', this.fullToneKeyOn);
-    //     } else if (keyParent.classList.contains(this.halfToneBoxClass)) {
-    //         keyImg.setAttribute('src', this.halfToneKeyOn);
-    //     }
-    // }
-
-    // setKeyOff(key) {
-    //     const keyParent = key.parentElement;
-    //     const keyImg = key.firstElementChild;        
-    //     if(keyParent.classList.contains(this.fullToneBoxClass)) {
-    //         keyImg.setAttribute('src', this.fullToneKey);
-    //     } else if (keyParent.classList.contains(this.halfToneBoxClass)) {
-    //         keyImg.setAttribute('src', this.halfToneKey);
-    //     }
-    // }
-
-    
+    }    
 }
 
 const piano = new Piano();

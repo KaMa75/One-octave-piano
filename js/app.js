@@ -7,6 +7,7 @@ class Piano {
         this.halfToneKeyOn = 'img/piano_halftone_key_on.png';
         this.fullToneBoxClass = 'fulltone_box';
         this.halfToneBoxClass = 'halftone_box';
+        this.keys = document.querySelectorAll('.piano [data-key]');
     }
 
     initEvents() {
@@ -23,12 +24,36 @@ class Piano {
         window.addEventListener('keyup', event => {
             const elements = this.findElements(event);
             if(elements.audioEl) {
-                this.stopAudio(elements.audioEl);
                 this.setKey(elements.keyEl, this.fullToneKey, this.halfToneKey);
             } else {
                 return;
             }
         });
+
+        this.keys.forEach(key => {
+            key.addEventListener('mousedown', event => {
+                let keyCode = event.target.parentElement.dataset.key;
+                const elements = this.findClickedElements(keyCode);
+                this.playAudio(elements.audioEl);
+                this.setKey(elements.keyEl, this.fullToneKeyOn, this.halfToneKeyOn);
+            });
+        });
+
+        this.keys.forEach(key => {
+            key.addEventListener('mouseup', event => {
+                let keyCode = event.target.parentElement.dataset.key;
+                const elements = this.findClickedElements(keyCode);
+                this.setKey(elements.keyEl, this.fullToneKey, this.halfToneKey);
+            });
+        });
+    }
+
+    mouseUpEvent
+
+    findClickedElements(code) {
+        const audioEl = document.querySelector(`audio[data-key="${code}"]`);
+        const keyEl = document.querySelector(`div[data-key="${code}"]`);
+        return { audioEl, keyEl };
     }
 
     findElements(event) {
@@ -38,12 +63,9 @@ class Piano {
     }
 
     playAudio(audio) {
-        audio.play();
-    }
-    
-    stopAudio(audio) {
         audio.currentTime = 0;
-        audio.pause();
+        audio.volume = 0.6;
+        audio.play();
     }
 
     setKey(key, fullToneImg, halfToneImg) {

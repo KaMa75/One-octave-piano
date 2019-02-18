@@ -32,8 +32,17 @@ class Piano {
 
         this.keys.forEach(key => {
             key.addEventListener('mousedown', event => {
-                let keyCode = event.target.parentElement.dataset.key;
-                const elements = this.findClickedElements(keyCode);
+                let elements;
+                if(event.target.tagName === 'IMG') {
+                    let keyCode = event.target.parentElement.dataset.key;
+                    elements = this.findClickedElements(keyCode);      
+                } else if (event.target.tagName === 'DIV') {
+                    let keyCode = event.target.parentElement.dataset.key;
+                    elements = this.findClickedElements(keyCode);      
+                } else if (event.target.tagName === 'P') {
+                    let keyCode = event.target.parentElement.parentElement.dataset.key;
+                    elements = this.findClickedElements(keyCode);      
+                }
                 this.playAudio(elements.audioEl);
                 this.setKey(elements.keyEl, this.fullToneKeyOn, this.halfToneKeyOn);
             });
@@ -41,14 +50,56 @@ class Piano {
 
         this.keys.forEach(key => {
             key.addEventListener('mouseup', event => {
-                let keyCode = event.target.parentElement.dataset.key;
-                const elements = this.findClickedElements(keyCode);
+                let elements;
+                if(event.target.tagName === 'IMG') {
+                    let keyCode = event.target.parentElement.dataset.key;
+                    elements = this.findClickedElements(keyCode);      
+                } else if (event.target.tagName === 'DIV') {
+                    let keyCode = event.target.parentElement.dataset.key;
+                    elements = this.findClickedElements(keyCode);      
+                } else if (event.target.tagName === 'P') {
+                    let keyCode = event.target.parentElement.parentElement.dataset.key;
+                    elements = this.findClickedElements(keyCode);      
+                }
+                this.setKey(elements.keyEl, this.fullToneKey, this.halfToneKey);
+            });
+        });
+
+        this.keys.forEach(key => {
+            key.addEventListener('touchstart', event => {
+                let elements;
+                if(event.target.tagName === 'IMG') {
+                    let keyCode = event.target.parentElement.dataset.key;
+                    elements = this.findClickedElements(keyCode);      
+                } else if (event.target.tagName === 'DIV') {
+                    let keyCode = event.target.parentElement.dataset.key;
+                    elements = this.findClickedElements(keyCode);      
+                } else if (event.target.tagName === 'P') {
+                    let keyCode = event.target.parentElement.parentElement.dataset.key;
+                    elements = this.findClickedElements(keyCode);      
+                }
+                this.playAudio(elements.audioEl);
+                this.setKey(elements.keyEl, this.fullToneKeyOn, this.halfToneKeyOn);
+            });
+        });
+
+        this.keys.forEach(key => {
+            key.addEventListener('touchend', event => {
+                let elements;
+                if(event.target.tagName === 'IMG') {
+                    let keyCode = event.target.parentElement.dataset.key;
+                    elements = this.findClickedElements(keyCode);      
+                } else if (event.target.tagName === 'DIV') {
+                    let keyCode = event.target.parentElement.dataset.key;
+                    elements = this.findClickedElements(keyCode);      
+                } else if (event.target.tagName === 'P') {
+                    let keyCode = event.target.parentElement.parentElement.dataset.key;
+                    elements = this.findClickedElements(keyCode);      
+                }
                 this.setKey(elements.keyEl, this.fullToneKey, this.halfToneKey);
             });
         });
     }
-
-    mouseUpEvent
 
     findClickedElements(code) {
         const audioEl = document.querySelector(`audio[data-key="${code}"]`);
